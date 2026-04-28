@@ -1,0 +1,112 @@
+# ============================================
+# DOMAURA .gitignore — Production-Grade Monorepo
+# ============================================
+
+# ============================================
+# ENVIRONMENT & SECRETS
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.production.local
+secrets/
+*.key
+*.pem
+*.crt
+.aws/
+.gcloud/
+
+# ============================================
+# NODE / NPM / YARN
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log*
+.next/
+out/
+
+# ============================================
+# FLUTTER / DART
+# ============================================
+pubspec.lock
+.fvm/
+.fvm/flutter_sdk
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+android/
+ios/
+windows/
+macos/
+linux/
+web/
+.packages
+
+# ============================================
+# NESTJS / TYPESCRIPT
+# ============================================
+dist/
+build/
+*.tsbuildinfo
+
+# ============================================
+# DATABASE & CACHE
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+.pgpass
+postgres_data/
+redis_data/
+
+# ============================================
+# IDE & EDITOR
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.iml
+.gradle/
+local.properties
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# DOCKER
+# ============================================
+.docker/
+docker-compose.override.yml
+
+# ============================================
+# LOGS & TESTS
+# ============================================
+logs/
+*.log
+coverage/
+.nyc_output/
+.jest/
+
+# ============================================
+# TEMPORARY & MISC
+# ============================================
+tmp/
+temp/
+*.tmp
+*.bak
+.cache/
+.eslintcache/
+uploads/
+public/uploads/
+.turbo/
+.pnp.*
