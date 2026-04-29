@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domaura - Version App Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <section class="brand-board">
+      <header class="brand-header">
+        <div class="logo-mark">D</div>
+        <div>
+          <h1>DOMAURA</h1>
+          <p>Web-first design system</p>
+        </div>
+      </header>
+
+      <div class="swatches">
+        <article>
+          <div class="chip navy"></div>
+          <span>#0F172A</span>
+        </article>
+        <article>
+          <div class="chip gold"></div>
+          <span>#D4AF37</span>
+        </article>
+        <article>
+          <div class="chip white"></div>
+          <span>#F8FAFC</span>
+        </article>
+      </div>
+
+      <div class="panel-grid">
+        <article class="panel">
+          <h2>Brand System</h2>
+          <ul>
+            <li><strong>Primary:</strong> navy + gold</li>
+            <li><strong>Neutral:</strong> soft grays</li>
+            <li><strong>Accent:</strong> warm highlights</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Typography</h2>
+          <ul>
+            <li><strong>Title:</strong> Montserrat 700</li>
+            <li><strong>Body:</strong> Plus Jakarta Sans 500</li>
+            <li><strong>Buttons:</strong> semi-bold rounded</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>UI Style</h2>
+          <ul>
+            <li>Rounded corners</li>
+            <li>Soft shadow depth</li>
+            <li>Clean wide spacing</li>
+          </ul>
+        </article>
+      </div>
+
+      <figure class="reference-block">
+        <img src="./assets/img/reference.jpeg" alt="Reference design sent by user" />
+        <figcaption>Référence visuelle utilisée pour cette implémentation.</figcaption>
+      </figure>
+    </section>
+
+    <section class="ui-board">
+      <header class="ui-header">
+        <h2>Prototype Web inspiré du design mobile</h2>
+        <div class="filters">
+          <button class="filter is-active">All</button>
+          <button class="filter">House</button>
+          <button class="filter">Apartment</button>
+          <button class="filter">For sale</button>
+        </div>
+      </header>
+
+      <div class="phone-grid">
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Home</h3>
+          <input placeholder="Explore property type" />
+          <div class="thumb"></div>
+          <p class="price">$120,000</p>
+          <p class="meta">Yaounde, Cameroun</p>
+        </article>
+
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Listing</h3>
+          <div class="thumb"></div>
+          <div class="thumb small"></div>
+          <p class="price">$210,000</p>
+          <p class="meta">Douala, Bonapriso</p>
+        </article>
+
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Details</h3>
+          <div class="thumb large"></div>
+          <p class="price">$350,000</p>
+          <button>Contact / Book</button>
+        </article>
+
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Map + CTA</h3>
+          <div class="thumb"></div>
+          <div class="map"></div>
+          <button>Contact / Book</button>
+        </article>
+
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Profile</h3>
+          <div class="avatar">AM</div>
+          <p class="meta strong">Ama</p>
+          <ul class="menu">
+            <li>Personal profile info</li>
+            <li>Favorites</li>
+            <li>My listings</li>
+          </ul>
+        </article>
+
+        <article class="phone">
+          <div class="phone-bar"></div>
+          <h3>Add Property</h3>
+          <input placeholder="Property details" />
+          <input placeholder="Address" />
+          <input placeholder="Price" />
+          <button>Submit</button>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
