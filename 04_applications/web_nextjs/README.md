@@ -24,3 +24,19 @@ URL par defaut: `http://localhost:3000`
 ## Important
 
 Cette version n'a pas encore de backend reel. Les donnees sont mockees dans `data/listings.ts`.
+
+## Deploiement Vercel
+
+Dans les settings Vercel, definir le `Root Directory` sur:
+
+```text
+04_applications/web_nextjs
+```
+
+Puis garder:
+
+```text
+Build Command: npm run build
+Install Command: npm install
+Output Directory: vide
+```
