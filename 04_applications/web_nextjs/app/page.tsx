@@ -1,103 +1,69 @@
-import { PropertyCard } from "../components/PropertyCard";
-
-const properties = [
-  {
-    title: "Villa moderne 4 chambres",
-    location: "Yaounde, Bastos",
-    price: "$350,000",
-  },
-  {
-    title: "Appartement premium",
-    location: "Douala, Bonapriso",
-    price: "$210,000",
-  },
-  {
-    title: "Maison familiale",
-    location: "Kribi, Ocean",
-    price: "$175,000",
-  },
-];
+import Link from "next/link";
+import { AppShell } from "../components/AppShell";
+import { ListingCard } from "../components/ListingCard";
+import { listings } from "../data/listings";
 
 export default function HomePage() {
+  const featuredListings = listings.slice(0, 3);
+
   return (
-    <main className="container">
-      <header className="hero">
-        <div className="brand">
-          <div className="brand-mark">D</div>
+    <AppShell>
+      <main className="page">
+        <section className="hero">
           <div>
-            <h1 className="brand-title">DOMAURA</h1>
-            <p className="muted">Trusted smart living ecosystem</p>
-          </div>
-        </div>
-        <div className="palette" aria-label="Domaura palette">
-          <div style={{ background: "#0F172A" }} />
-          <div style={{ background: "#D4AF37" }} />
-          <div style={{ background: "#F8FAFC" }} />
-        </div>
-      </header>
-
-      <section className="main-grid">
-        <div className="card section">
-          <h2>Listings</h2>
-          <div className="filters">
-            <button className="chip active">All</button>
-            <button className="chip">House</button>
-            <button className="chip">Apartment</button>
-            <button className="chip">For sale</button>
-            <button className="chip">For rent</button>
-          </div>
-          <div className="property-list">
-            {properties.map((property) => (
-              <PropertyCard key={property.title} {...property} />
-            ))}
-          </div>
-        </div>
-
-        <div className="stack">
-          <section className="card section">
-            <h2>Property details</h2>
-            <div className="thumb" style={{ minHeight: 180 }} />
-            <p className="price">$350,000</p>
-            <p className="muted">
-              Corner villa with secure parking, modern finishes, and premium
-              neighborhood services.
+            <p className="eyebrow">App Web MVP</p>
+            <h1>La plateforme de confiance pour vivre, acheter et vendre mieux.</h1>
+            <p>
+              DOMAURA unifie immobilier, marketplace et services avec une couche
+              de confiance adaptee au marche africain.
             </p>
-            <button className="action">Contact / Book</button>
-          </section>
+            <div className="hero-actions">
+              <Link href="/explore" className="button primary">
+                Explorer
+              </Link>
+              <Link href="/create" className="button secondary">
+                Publier une annonce
+              </Link>
+            </div>
+          </div>
+          <div className="hero-panel">
+            <span>Demo end-to-end</span>
+            <strong>Browse - Chat - Escrow mock</strong>
+            <p>Sans backend reel pour aller vite, mais avec le parcours produit complet.</p>
+          </div>
+        </section>
 
-          <section className="card section">
-            <h2>Profile</h2>
-            <div className="profile">
-              <div className="avatar">AM</div>
-              <div>
-                <strong>Ama</strong>
-                <p className="muted">Premium profile</p>
-              </div>
-            </div>
-          </section>
+        <section className="stats-grid" aria-label="Priorites MVP">
+          <div>
+            <strong>3</strong>
+            <span>modules fusionnes</span>
+          </div>
+          <div>
+            <strong>1</strong>
+            <span>modele Listing</span>
+          </div>
+          <div>
+            <strong>Mock</strong>
+            <span>escrow & trust</span>
+          </div>
+        </section>
 
-          <section className="card section">
-            <h2>Add property</h2>
-            <div className="field">
-              <label htmlFor="title">Property title</label>
-              <input id="title" placeholder="Modern villa" />
-            </div>
-            <div className="field">
-              <label htmlFor="type">Type</label>
-              <select id="type" defaultValue="house">
-                <option value="house">House</option>
-                <option value="apartment">Apartment</option>
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="price">Price</label>
-              <input id="price" placeholder="$120,000" />
-            </div>
-            <button className="action secondary">Submit</button>
-          </section>
-        </div>
-      </section>
-    </main>
+        <section className="section-heading">
+          <div>
+            <p className="eyebrow">Apercu</p>
+            <h2>Annonces prioritaires</h2>
+          </div>
+          <Link href="/explore" className="text-link">
+            Tout voir
+          </Link>
+        </section>
+
+        <section className="listing-grid">
+          {featuredListings.map((listing) => (
+            <ListingCard key={listing.id} listing={listing} />
+          ))}
+        </section>
+      </main>
+    </AppShell>
   );
 }
-

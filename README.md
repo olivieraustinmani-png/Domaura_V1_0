@@ -1,6 +1,8 @@
 # 📖 DOMAURA v2 — Super-App Africaine de Confiance
 
-**Version**: 2.0 | **Date**: 29 Avril 2026 | **Status**: 🚀 **PRÊT POUR LE DÉVELOPPEMENT**
+**Version**: 2.0 | **Date**: 29 Avril 2026 | **Status actuel**: App Web MVP en priorité
+
+> Source de vérité court terme: `MVP_WEB_SCOPE.md`
 
 ---
 
@@ -120,22 +122,28 @@ KYC, vérification de propriété, notation d'utilisateurs, historique transacti
 
 ## 🚀 DÉMARRAGE RAPIDE
 
-### 1. Initialiser la Structure
+### 1. Lancer l'App Web MVP
 ```bash
-pwsh -ExecutionPolicy Bypass -File "SETUP_FINAL.ps1"
+cd 04_applications/web_nextjs
+npm install
+npm run dev
 ```
 
-### 2. Initialiser les Applications
+### 2. Parcours MVP à livrer
+```text
+Visiteur -> Explore -> Detail annonce -> Create -> Chat mock -> Checkout escrow mock -> Profile trust
+```
+
+### 3. Initialiser les autres applications plus tard
 ```bash
 # Flutter
 cd 04_applications && flutter create mobile_flutter --org com.domaura
 
-# Next.js
-npx create-next-app@latest web_nextjs --typescript
-
 # NestJS
 cd 05_microservices_backend/api_gateway && npx @nestjs/cli@latest new .
 ```
+
+Docker, backend NestJS, Flutter, monitoring et microservices restent des chantiers V1/V2, pas des prerequis pour la demo App Web MVP.
 
 ### 3. Docker + Infrastructure
 ```bash

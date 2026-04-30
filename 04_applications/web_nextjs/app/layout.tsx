@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Domaura Web",
-  description: "Domaura web style reference",
+  title: "Domaura App Web MVP",
+  description: "Demo MVP de la super-app africaine de confiance Domaura",
 };
 
 export default function RootLayout({
@@ -12,9 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body>{children}</body>
     </html>
   );
 }
-

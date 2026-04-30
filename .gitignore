@@ -24,7 +24,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
 yarn.lock
 .pnpm-debug.log*
 .next/
@@ -33,19 +32,15 @@ out/
 # ============================================
 # FLUTTER / DART
 # ============================================
-pubspec.lock
 .fvm/
 .fvm/flutter_sdk
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 build/
-android/
-ios/
 windows/
 macos/
 linux/
-web/
 .packages
 
 # ============================================

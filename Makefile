@@ -4,7 +4,7 @@
 # Usage: make <command>
 # Example: make dev:all
 
-.PHONY: help install dev:all dev:api dev:web dev:flutter build:all build:api build:web build:flutter test:all test:api test:web test:flutter lint:all lint:fix db:setup db:migrate db:seed docker:up docker:down docker:logs clean
+.PHONY: help install install:web dev:mvp dev:all dev:api dev:web dev:flutter build:mvp build:all build:api build:web build:flutter test:all test:api test:web test:flutter lint:all lint:fix typecheck:web db:setup db:migrate db:seed docker:up docker:down docker:logs clean
 
 # Default target
 .DEFAULT_GOAL := help
@@ -23,6 +23,12 @@ help:
 	@echo "$(BLUE)╔═══════════════════════════════════════════╗$(NC)"
 	@echo "$(BLUE)║         DOMAURA Make Commands            ║$(NC)"
 	@echo "$(BLUE)╚═══════════════════════════════════════════╝$(NC)"
+	@echo ""
+	@echo "$(GREEN)MVP Web actuel:$(NC)"
+	@echo "  make install              - Install App Web MVP dependencies"
+	@echo "  make dev:mvp              - Start App Web MVP only"
+	@echo "  make build:mvp            - Build App Web MVP only"
+	@echo "  make typecheck:web        - Type-check App Web MVP"
 	@echo ""
 	@echo "$(GREEN)Development:$(NC)"
 	@echo "  make dev:all              - Start all services (API + Web + Docker)"
@@ -68,18 +74,21 @@ help:
 # INSTALLATION
 # ============================================
 install:
-	@echo "$(YELLOW)Installing dependencies...$(NC)"
-	@echo "Installing Backend (NestJS)..."
-	@cd 05_microservices_backend && npm install
-	@echo "Installing Frontend (Next.js)..."
+	@$(MAKE) install:web
+
+install:web:
+	@echo "$(YELLOW)Installing App Web MVP dependencies...$(NC)"
 	@cd 04_applications/web_nextjs && npm install
-	@echo "$(GREEN)✓ Dependencies installed$(NC)"
+	@echo "$(GREEN)✓ App Web MVP dependencies installed$(NC)"
 
 # ============================================
 # DEVELOPMENT
 # ============================================
-dev:all: docker:up dev:api dev:web
-	@echo "$(GREEN)✓ All services running$(NC)"
+dev:mvp: dev:web
+	@echo "$(GREEN)✓ App Web MVP running$(NC)"
+
+dev:all:
+	@echo "$(YELLOW)Full stack is not initialized yet. Use 'make dev:mvp' for the current App Web MVP.$(NC)"
 
 dev:api:
 	@echo "$(YELLOW)Starting NestJS API (port 3000)...$(NC)"
@@ -96,8 +105,11 @@ dev:flutter:
 # ============================================
 # BUILDING
 # ============================================
-build:all: build:api build:web
-	@echo "$(GREEN)✓ All projects built$(NC)"
+build:all:
+	@echo "$(YELLOW)Full stack build is not initialized yet. Use 'make build:mvp' for the current App Web MVP.$(NC)"
+
+build:mvp: build:web
+	@echo "$(GREEN)✓ App Web MVP built$(NC)"
 
 build:api:
 	@echo "$(YELLOW)Building NestJS API...$(NC)"
@@ -118,8 +130,8 @@ build:flutter:ios:
 # ============================================
 # TESTING
 # ============================================
-test:all: test:api test:web test:flutter
-	@echo "$(GREEN)✓ All tests completed$(NC)"
+test:all: test:web
+	@echo "$(GREEN)✓ MVP Web tests completed$(NC)"
 
 test:api:
 	@echo "$(YELLOW)Testing NestJS API...$(NC)"
@@ -142,8 +154,8 @@ test:coverage:
 # ============================================
 # LINTING & FORMATTING
 # ============================================
-lint:all: lint:api lint:web
-	@echo "$(GREEN)✓ All linting checks completed$(NC)"
+lint:all: lint:web
+	@echo "$(GREEN)✓ MVP Web linting checks completed$(NC)"
 
 lint:api:
 	@echo "$(YELLOW)Linting NestJS API...$(NC)"
@@ -152,6 +164,10 @@ lint:api:
 lint:web:
 	@echo "$(YELLOW)Linting Next.js...$(NC)"
 	@cd 04_applications/web_nextjs && npm run lint
+
+typecheck:web:
+	@echo "$(YELLOW)Type-checking Next.js...$(NC)"
+	@cd 04_applications/web_nextjs && npm run typecheck
 
 lint:fix:
 	@echo "$(YELLOW)Fixing code formatting...$(NC)"

@@ -72,7 +72,7 @@ DOMAURA/
 │   │
 │   └── web_nextjs/
 │       ├── app/
-│       ├── components/
+│       ├── components/ composant UI
 │       ├── services/
 │       └── public/
 │
